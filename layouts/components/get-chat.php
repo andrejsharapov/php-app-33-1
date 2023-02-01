@@ -14,7 +14,7 @@ if (isset($_SESSION['user']['id'])) {
 
     $output = '';
 
-    $query = "SELECT * FROM $table_msg LEFT JOIN $table_img ON $table_img.user_id = $table_msg.outgoing_msg_id WHERE outgoing_msg_id = '$outgoing_id' AND incoming_msg_id = '$incoming_id' OR outgoing_msg_id = '$incoming_id' AND incoming_msg_id = '$outgoing_id'";
+    $query = "SELECT * FROM $table_msg LEFT JOIN $table_img ON $table_img.user_id = $table_msg.outgoing_msg_id WHERE outgoing_msg_id = '$outgoing_id' AND incoming_msg_id = '$incoming_id' OR outgoing_msg_id = '$incoming_id' AND incoming_msg_id = '$outgoing_id' GROUP BY msg_id";
     $result = mysqli_query($db_link, $query);
 
     function getUserAvatar($user)
