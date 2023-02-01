@@ -7,13 +7,27 @@ if (!$user) {
     header('location: /');
 }
 
-$page = array(
-  'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Chat'
-);
+function pageTitle($user): string
+{
+    if (isset($user['name'])) {
+        return ucfirst($user['name']);
+    } else {
+        return 'User ' . $user['id'];
+    }
+}
 
+if (isset($_GET['user_id'])) {
+    $page = array(
+        'title' => pageTitle($user) . ' + User ' . $_GET['user_id'] ?? 'Chat'
+    );
+} else {
+    $page = array(
+      'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Chat'
+    );
+}
+
+include __DIR__ . '/layouts/header.php';
 ?>
-
-<?php include 'layouts/header.php'; ?>
 
 <div class="flex divide-x-2 divide-gray-100">
 
@@ -39,13 +53,13 @@ $page = array(
             if (isset($_GET['user_id']) && $user['id'] !== $_GET['user_id']) {
                 include "layouts/components/chat.php";
             } else if ($user['id'] === $_GET['user_id']) {
-                    echo '<div class="p-3 grid h-full place-content-center">';
-                    echo '<span class="font-bold">Вы не можете отправлять себе сообщения, так как администратор не успел это проработать \'-__-</span>';
-                    echo '<img src="src/hello.svg" alt="" class="max-w-lg mx-auto opacity-50">';
-                    echo '</div>';
-                } else {
-                    echo '<img src="src/hello.svg" alt="" class="max-w-lg h-full mx-auto opacity-50">';
-                }
+                echo '<div class="p-3 grid h-full place-content-center">';
+                echo '<span class="font-bold">Вы не можете отправлять себе сообщения, так как администратор не успел это проработать \'-__-</span>';
+                echo '<img src="src/hello.svg" alt="" class="max-w-lg mx-auto opacity-50">';
+                echo '</div>';
+            } else {
+                echo '<img src="src/hello.svg" alt="" class="max-w-lg h-full mx-auto opacity-50">';
+            }
 
             ?>
         </div>
