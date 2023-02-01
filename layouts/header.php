@@ -25,8 +25,7 @@ if (isset($_SESSION['user'])) {
 
 <body class="m-0 min-h-screen flex flex-col dark:bg-gray-800 dark:text-gray-300">
 
-    <header class="flex flex-col sm:flex-row gap-y-4 justify-between items-center px-4 py-3 z-10 bg-white shadow-sm">
-
+    <header class="flex flex-col sm:flex-row sm:gap-x-4 justify-between items-center px-4 sm:py-3 z-10 bg-white shadow-sm">
         <div></div>
 
         <div class="flex items-center divide-x">

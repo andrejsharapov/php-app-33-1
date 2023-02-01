@@ -17,7 +17,7 @@ include __DIR__ . '/layouts/header.php';
 ?>
 
 <main class="flex-grow home-page">
-    <div class="lg:absolute top-24 right-6 left-6 bg-blue-500 text-white mix-blend-multiply lg:rounded-lg">
+    <div class="hidden lg:block lg:absolute top-24 right-6 left-6 bg-blue-500 text-white mix-blend-multiply lg:rounded-lg">
         <div class="text-center text-5xl font-extrabold pt-3 pb-5 lg:pl-12">
             Welcome to <?php echo ucfirst($app_name); ?>
         </div>
@@ -25,7 +25,7 @@ include __DIR__ . '/layouts/header.php';
 
     <div class="grid lg:grid-cols-2 items-stretch divide-x divide-2 w-full min-h-full bg-white bg-no-repeat bg-cover bg-center">
         <!-- register -->
-        <div class="pb-12 pt-12 lg:pt-32 px-6 w-full mx-auto text-gray-800 transition ease-in-out delay-200 duration-300">
+        <div class="py-4 sm:pb-12 sm:pt-12 md:pt-4 px-6 w-full mx-auto text-gray-800 transition ease-in-out delay-200 duration-300">
             <img src="src/signup.svg" class="hidden lg:block w-full max-w-xs mx-auto" alt="auth">
 
             <div class="container mx-auto max-w-lg">
@@ -65,7 +65,7 @@ include __DIR__ . '/layouts/header.php';
         </div>
 
         <!-- auth -->
-        <div class="pb-12 pt-12 lg:pt-32 px-6 w-full mx-auto text-gray-800 transition ease-in-out delay-200 duration-300">
+        <div class="pb-12 pt-12 md:pt-4 px-6 w-full mx-auto text-gray-800 transition ease-in-out delay-200 duration-300">
             <img src="src/signin.svg" class="hidden lg:block w-full max-w-xs mx-auto" alt="login">
 
             <div class="container mx-auto max-w-lg">
