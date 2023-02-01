@@ -17,7 +17,7 @@ include __DIR__ . '/layouts/header.php';
 ?>
 
 <main class="flex-grow home-page">
-    <div class="hidden lg:block lg:absolute top-24 right-6 left-6 bg-blue-500 text-white mix-blend-multiply lg:rounded-lg">
+    <div class="hidden lg:block lg:absolute top-12 right-6 left-6 bg-blue-500 text-white mix-blend-multiply lg:rounded-b-lg">
         <div class="text-center text-5xl font-extrabold pt-3 pb-5 lg:pl-12">
             Welcome to <?php echo ucfirst($app_name); ?>
         </div>
