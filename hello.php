@@ -22,7 +22,7 @@ if (isset($_GET['user_id'])) {
     );
 } else {
     $page = array(
-      'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Chat'
+        'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Chat'
     );
 }
 
@@ -33,11 +33,7 @@ include __DIR__ . '/layouts/header.php';
 
     <main class="chat-page w-full flex flex-grow divide-x-2 divide-gray-200 overflow-hidden">
         <!-- sidebar -->
-        <div id="sidebar-drawer"
-             tabindex="-1"
-             aria-labelledby="drawer-label"
-             class="min-w-max left-0 h-full overflow-y-auto transition-transform w-80 bg-white dark:bg-gray-800"
-        >
+        <div id="sidebar-drawer" tabindex="-1" aria-labelledby="drawer-label" class="min-w-max left-0 h-full overflow-y-auto transition-transform w-80 bg-white dark:bg-gray-800">
             <div class="flex items-center justify-between p-4 bg-gray-100 border-b-2 border-gray-200">
                 <div class="text-xl font-bold">User list</div>
             </div>
@@ -50,13 +46,15 @@ include __DIR__ . '/layouts/header.php';
         <!-- content -->
         <div class="content grow w-full relative bg-gray-100">
             <?php
-            if (isset($_GET['user_id']) && $user['id'] !== $_GET['user_id']) {
-                include "layouts/components/chat.php";
-            } else if ($user['id'] === $_GET['user_id']) {
-                echo '<div class="p-3 grid h-full place-content-center">';
-                echo '<span class="font-bold">Вы не можете отправлять себе сообщения, так как администратор не успел это проработать \'-__-</span>';
-                echo '<img src="src/hello.svg" alt="" class="max-w-lg mx-auto opacity-50">';
-                echo '</div>';
+            if (isset($_GET['user_id'])) {
+                if (isset($_GET['user_id']) && $user['id'] !== $_GET['user_id']) {
+                    include "layouts/components/chat.php";
+                } else if ($user['id'] === $_GET['user_id']) {
+                    echo '<div class="p-3 grid h-full place-content-center">';
+                    echo '<span class="font-bold">Вы не можете отправлять себе сообщения, так как администратор не успел это проработать \'-__-</span>';
+                    echo '<img src="src/hello.svg" alt="" class="max-w-lg mx-auto opacity-50">';
+                    echo '</div>';
+                }
             } else {
                 echo '<img src="src/hello.svg" alt="" class="max-w-lg h-full mx-auto opacity-50">';
             }
