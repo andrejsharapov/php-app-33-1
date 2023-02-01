@@ -40,11 +40,11 @@ ALTER TABLE users
 --     SET role = 'user'
 --         WHERE id = 1;
 
--- show table
-SELECT * FROM users;
+UPDATE users set name = 'nub' WHERE id = 1;
 
 
 -- -------------------------------------------------------------------------------
+SELECT * FROM users;
 DELETE FROM users;
 ALTER TABLE users AUTO_INCREMENT = 1;
 DROP TABLE users;
@@ -73,8 +73,6 @@ ALTER TABLE images
 
 -- DELETE FROM users WHERE id = 3;
 
-SELECT * FROM images;
-
 --
 CREATE INDEX email_name_index ON users (email, name);
 CREATE UNIQUE INDEX user_image_index ON images (user_id, path);
@@ -88,6 +86,7 @@ SHOW INDEXES FROM users; -- users/images
 
 
 -- -------------------------------------------------------------------------------
+SELECT * FROM images;
 DELETE FROM images;
 ALTER TABLE images AUTO_INCREMENT = 1;
 DROP TABLE images;
