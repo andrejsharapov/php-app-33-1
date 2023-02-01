@@ -34,13 +34,13 @@ if (isset($_SESSION['user']['id'])) {
                         <div class="outgoing_msg mb-5 ml-auto w-min px-3 py-2 shadow-md rounded-t-2xl rounded-bl-2xl bg-gray-700 text-white">
                             <p>' . $row['msg'] . ' </p>
                         </div>
-                        <img alt="" class="w-8 h-8 object-cover rounded-full border-2 border-gray-100" src="' . getUserAvatar($row) . '">
+                        <img alt="" class="w-8 h-8 object-cover rounded-full border-2 border-gray-100 ml-2" src="' . getUserAvatar($row) . '">
                     </div>
                 ';
             } else {
                 $output .= '
                     <div class="flex items-end">
-                        <img alt="" class="w-8 h-8 object-cover rounded-full border-2 border-gray-100" src="' . getUserAvatar($row) . '">
+                        <img alt="" class="w-8 h-8 object-cover rounded-full border-2 border-gray-100 mr-2" src="' . getUserAvatar($row) . '">
                         <div class="incoming_msg mb-5 mr-auto w-min px-3 py-2 shadow-md rounded-t-2xl rounded-br-2xl bg-white">
                             <p>' . $row['msg'] . ' </p>
                         </div>
