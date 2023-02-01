@@ -1,5 +1,6 @@
 .idea
-.env
-/vendor
 src/avatars/*.*
 !src/avatars/default.*
+/vendor
+.env
+composer.lock
