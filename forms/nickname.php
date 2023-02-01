@@ -28,7 +28,7 @@ if (empty($login)) {
 
         // replace username if not empty
         if (mysqli_num_rows($get_user_by_id) > 0) {
-            mysqli_query($db_link, "UPDATE name FROM $db_table WHERE id = $user_id");
+            mysqli_query($db_link, "UPDATE $db_table SET name = '$login' WHERE id = $user_id");
         }
 
         $query = "UPDATE $db_table SET name = '$login' WHERE id = $user_id";
