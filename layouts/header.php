@@ -20,7 +20,7 @@ if (isset($_SESSION['user'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $page['title'] . ' | ' . $app_name; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/app.css">
+    <link rel="stylesheet" href="assets/app.css">
 </head>
 
 <body class="m-0 min-h-screen flex flex-col dark:bg-gray-800 dark:text-gray-300">
