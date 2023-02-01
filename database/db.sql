@@ -34,15 +34,15 @@ ALTER TABLE users
         SET DEFAULT 'user'
 ;
 
--- INSERT INTO users (email, password, date) VALUES ('', '', '');
-
 -- add a role if there is a previously created user
-UPDATE users
-    SET role = 'user'
-        WHERE id = 1;
+-- INSERT INTO users (email, password, date) VALUES ('', '', '');
+-- UPDATE users
+--     SET role = 'user'
+--         WHERE id = 1;
 
 -- show table
 SELECT * FROM users;
+
 
 -- -------------------------------------------------------------------------------
 DELETE FROM users;
@@ -57,15 +57,13 @@ CREATE TABLE images
     id       serial PRIMARY KEY,
     path     VARCHAR(256) NOT NULL,
     user_id  INT
--- 	FOREIGN KEY users_images_fk(user_id) REFERENCES users(id)
---     user_id  INT REFERENCES users (id)
 );
 
 -- select img by id
-SELECT * FROM images
-    RIGHT JOIN users
-        ON images.user_id = users.id
-;
+-- SELECT * FROM images
+--     RIGHT JOIN users
+--         ON images.user_id = users.id
+-- ;
 
 -- set default path
 ALTER TABLE images
@@ -81,12 +79,13 @@ SELECT * FROM images;
 CREATE INDEX email_name_index ON users (email, name);
 CREATE UNIQUE INDEX user_image_index ON images (user_id, path);
 
-ALTER TABLE php_app_33_1.images
-    DROP INDEX user_image_index
-;
+-- ALTER TABLE php_app_33_1.images
+--     DROP INDEX user_image_index
+-- ;
 
 --
 SHOW INDEXES FROM users; -- users/images
+
 
 -- -------------------------------------------------------------------------------
 DELETE FROM images;
