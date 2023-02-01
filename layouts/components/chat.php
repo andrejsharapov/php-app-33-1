@@ -7,20 +7,11 @@ $user_id = mysqli_real_escape_string($db_link, $_GET['user_id']);
 $table_users = 'users';
 $table_img = 'images';
 
-$query = "SELECT * FROM $table_img RIGHT JOIN $table_users ON $table_img.user_id = $user_id";
+$query = "SELECT * FROM $table_users, $table_img WHERE $table_users.id = $user_id";
 $sql = mysqli_query($db_link, $query);
 
 if (mysqli_num_rows($sql) > 0) {
     $row = mysqli_fetch_assoc($sql);
-}
-
-function getUserAvatar($user)
-{
-    if (empty($user["path"])) {
-        return "/../../src/avatars/default.png";
-    } else {
-        return $user["path"];
-    }
 }
 
 function getUserName($user)
@@ -36,14 +27,10 @@ function getUserName($user)
 
 <div class="flex flex-col h-full divide-y-2 divide-gray-200">
     <!-- user -->
-    <div class="chat-user__info shrink flex gap-x-4 items-center justify-center hover:bg-gray-100 px-3 py-3">
-        <img
-                alt=""
-                class="w-9 h-9 object-cover rounded-md border-2 border-gray-100"
-                src="<?php echo getUserAvatar($row) ?>
-        ">
-        <div class="block text-sm text-gray-900 whitespace-nowrap font-bold">
-            <?php echo getUserName($row) ?>
+    <div class="chat-user__info shrink flex items-center justify-center px-3 py-1 text-gray-900 whitespace-nowrap">
+        Chat with user:&nbsp;
+        <div class="inline-block text-sm font-bold">
+            <?php echo getUserName($row); ?>
         </div>
     </div>
 
