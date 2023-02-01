@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-include './layouts/header.php';
-
 $page = array(
   'title' => 'User list'
 );
+
+include __DIR__ . '/layouts/header.php';
 
 $query = "SELECT * FROM " . $db_table . " WHERE id > 0";
 $result = mysqli_query($db_link, $query) or die(mysqli_error($db_link));

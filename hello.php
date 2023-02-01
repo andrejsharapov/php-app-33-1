@@ -8,7 +8,7 @@ if (!$user) {
 }
 
 $page = array(
-  'title' => 'Hello, ' . ucfirst($user['name'] ?? "vk user №" . $user['id'])
+  'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Chat'
 );
 
 ?>

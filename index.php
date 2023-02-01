@@ -12,9 +12,9 @@ if (isset($_SESSION['user'])) {
 }
 
 $page = ['title' => 'Registration and login'];
-?>
 
-<?php include 'layouts/header.php'; ?>
+include __DIR__ . '/layouts/header.php';
+?>
 
 <main class="flex-grow home-page">
     <div class="lg:absolute top-24 right-6 left-6 bg-blue-500 text-white mix-blend-multiply lg:rounded-lg">

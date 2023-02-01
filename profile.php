@@ -4,11 +4,15 @@ session_start();
 require __DIR__ . "/forms/upload.php";
 require __DIR__ . "/layouts/header.php";
 
-if (!isset($_SESSION['user'])) {
+$user = $_SESSION['user'];
+
+if (!isset($user)) {
     header('location: /');
 }
 
-$page = ['title' => 'Profile ' . $user['name'] ? $user['name'] : $user['email']];
+$page = array(
+  'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Profile'
+);
 
 $db_link = getDatabase() or die(mysqli_error($db_link));
 
