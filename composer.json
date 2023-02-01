@@ -1,0 +1,17 @@
+{
+    "name": "andrejsharapov/php-app-33-1",
+    "description": "Backend learning: app for module 33-1",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "andrejsharapov",
+            "email": "an.sharapov90@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog": "^2.5",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
