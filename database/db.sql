@@ -105,6 +105,8 @@ CREATE TABLE messages
     date     		DATE         	NOT NULL
 );
 
+CREATE INDEX incoming_outgoing_index ON messages (incoming_msg_id, outgoing_msg_id);
+
 -- -------------------------------------------------------------------------------
 DELETE FROM messages;
 ALTER TABLE messages AUTO_INCREMENT = 1;
