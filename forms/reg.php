@@ -2,6 +2,7 @@
 session_start();
 
 require_once __DIR__ . '/../database/db.php';
+include_once __DIR__ . './send-email.php';
 
 /**
  * @param array $data
@@ -43,7 +44,7 @@ if ($ep) {
 if (!$ee && !$ep) {
     unset($_SESSION['errors']);
 
-// check login in database
+    // check login in database
     $findUserName = "SELECT * FROM `users` WHERE email = '$user[email]'";
     $result = mysqli_query($db_link, $findUserName) or die(mysqli_error($db_link));
     $rows = mysqli_num_rows($result) > 0;
@@ -60,6 +61,8 @@ if (!$ee && !$ep) {
         mysqli_close($db_link);
 
         if ($query) {
+            sendMessageToEmail();
+
             $_SESSION['checkReg'] = 'Вы успешно зарегистрированы!';
             $_SESSION['errors'] = 'green';
         }
