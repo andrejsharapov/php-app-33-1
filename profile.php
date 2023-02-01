@@ -1,18 +1,18 @@
 <?php
 session_start();
 
+$user = $_SESSION['user'];
+$page = array(
+    'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Profile'
+);
+$user = $_SESSION['user'];
+
 require __DIR__ . "/forms/upload.php";
 require __DIR__ . "/layouts/header.php";
-
-$user = $_SESSION['user'];
 
 if (!isset($user)) {
     header('location: /');
 }
-
-$page = array(
-  'title' => ucfirst($user['name'] ?? "user #" . $user['id']) ?? 'Profile'
-);
 
 $db_link = getDatabase() or die(mysqli_error($db_link));
 
